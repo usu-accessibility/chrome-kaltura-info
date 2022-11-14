@@ -92,7 +92,7 @@ function getInfo() {
             let toAppend = document.createElement('div');
             toAppend.classList.add('mediaspace-info');
             toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
-            console.log(`Entry/Playlist ID: ${entryid}`);
+            console.log((Entry/Playlist ID:.bold()) + `${entryid}`);
 
             // Create a no space div to add the info to, which div will be added to the parent of the iframe
             let zeroSpaceDiv = document.createElement('div');
