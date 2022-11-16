@@ -68,7 +68,7 @@ function getInfo() {
             // Create the element (with id in it) to add on to the no space div
             let toAppend = document.createElement('div');
             toAppend.classList.add('info');
-            toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
+            toAppend.innerHTML = ("Entry/Playlist ID:".bold() + `${entryid}`);
             console.log(`Entry/Playlist ID: ${entryid}`);
 
             // Create a no space div to add the info to, which div will be added to the parent of the iframe
