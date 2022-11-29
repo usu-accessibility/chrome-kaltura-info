@@ -50,6 +50,7 @@ function getInfo() {
         // Default value of no match incase no regex match is found for any variation
         let entryid = "not found";
         let domain;
+
         if (match1) {
             entryid = match1[1];
             domain = 'canvas';
@@ -68,7 +69,14 @@ function getInfo() {
             // Create the element (with id in it) to add on to the no space div
             let toAppend = document.createElement('div');
             toAppend.classList.add('info');
-            toAppend.innerHTML = ("Entry/Playlist ID:".bold() + `${entryid}`);
+            toAppend.innerHTML = (" Entry/Playlist ID:".bold() + ` ${entryid} `);
+            let copy = document.createElement('BUTTON');
+            copy.innerHTML ="Copy";
+            copy.onclick = function copyid () {
+              navigator.clipboard.writeText(entryid);
+              alert(`Copied ${entryid}`);
+            };
+            toAppend.appendChild(copy);
             console.log(`Entry/Playlist ID: ${entryid}`);
 
             // Create a no space div to add the info to, which div will be added to the parent of the iframe
@@ -91,8 +99,8 @@ function getInfo() {
             // Create the element (with id in it) to add on to the no space div
             let toAppend = document.createElement('div');
             toAppend.classList.add('mediaspace-info');
-            toAppend.innerHTML = `Entry/Playlist ID: ${entryid}`;
-            console.log((Entry/Playlist ID:.bold()) + `${entryid}`);
+            toAppend.innerHTML = ("Entry/Playlist ID:".bold() + ` ${entryid}`);
+            console.log(`Entry/Playlist ID: ${entryid}`);
 
             // Create a no space div to add the info to, which div will be added to the parent of the iframe
             let zeroSpaceDiv = document.createElement('div');
@@ -109,5 +117,6 @@ function getInfo() {
                 parent.style.display = "inline-block";
             }
         }
+
     }
 }
