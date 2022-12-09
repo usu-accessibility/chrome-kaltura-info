@@ -64,6 +64,9 @@ function getInfo() {
             entryid = match4[1];
             domain = 'mediaspace';
         }
+        else {
+
+        }
 
         if (domain == 'canvas') {
             // Create the element (with id in it) to add on to the no space div
@@ -74,7 +77,7 @@ function getInfo() {
             copy.innerHTML ="Copy";
             copy.onclick = function copyid () {
               navigator.clipboard.writeText(entryid);
-              alert(`Copied ${entryid}`);
+              copy.innerHTML ="Copied!";
             };
             toAppend.appendChild(copy);
             console.log(`Entry/Playlist ID: ${entryid}`);
