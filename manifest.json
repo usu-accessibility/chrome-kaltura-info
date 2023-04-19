@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Kultura Information",
+  "name": "Kaltura Information",
   "description": "Displays info about Kaltura media players within current page.",
   "version": "2.0.0",
   "content_scripts": [
