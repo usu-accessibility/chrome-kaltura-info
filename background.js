@@ -15,16 +15,16 @@ chrome.action.onClicked.addListener(async (tab) => {
       func: getIds,
     });
     await chrome.scripting.insertCSS({
-      target: { tabId: tab.id },
+      target: { tabId: tab.id, allFrames: true },
       files: ["style.css"],
     });
   } else {
     await chrome.scripting.executeScript({
-      target: { tabId: tab.id, allFrames: false },
+      target: { tabId: tab.id, allFrames: true },
       func: removeIds,
     });
     await chrome.scripting.removeCSS({
-      target: { tabId: tab.id },
+      target: { tabId: tab.id, allFrames: true },
       files: ["style.css"],
     });
   }
@@ -48,6 +48,11 @@ function getIds() {
 
   for (frame of iframes) {
     // regex match with each iframe's src
+
+    // Find speedgrader iframe
+    if (frame.id === "speedgrader_iframe") {
+      frame = frame.contentWindow.document.querySelector(".lti-embed");
+    }
 
     // console.log(frame.contentWindow.document.body.innerHTML);
     let match1 = frame.src.match(re1);
