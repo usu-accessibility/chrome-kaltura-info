@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Kaltura Information",
   "description": "Displays ID metadata for embedded Kaltura media videos.",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
