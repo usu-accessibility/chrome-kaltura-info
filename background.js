@@ -47,14 +47,16 @@ function getIds() {
   const URIre = /(\w_\w{8})/;
 
   for (frame of iframes) {
-    // regex match with each iframe's src
-
     // Find speedgrader iframe
     if (frame.id === "speedgrader_iframe") {
       frame = frame.contentWindow.document.querySelector(".lti-embed");
     }
 
-    // console.log(frame.contentWindow.document.body.innerHTML);
+    // Find Video Quiz frames
+    if (frame.id === "tool_content") {
+      frame.src = document.getElementById("tool_form").action;
+    }
+
     let match1 = frame.src.match(re1);
     let match2 = frame.src.match(re2);
     let match3 = frame.src.match(re3);
@@ -88,6 +90,10 @@ function getIds() {
       button.onclick = function copyId() {
         navigator.clipboard.writeText(entryid);
         button.innerHTML = "Copied!";
+
+        setTimeout(() => {
+          button.innerHTML = "Copy";
+        }, 1500);
       };
 
       toAppend.appendChild(button);
@@ -103,13 +109,11 @@ function removeIds() {
   let infoElements = document.querySelectorAll(".idInfo");
   let relativeElements = document.querySelectorAll(".relative");
 
-  console.log(infoElements);
-
-  for (element of infoElements) {
+  infoElements.forEach((element) => {
     element.remove();
-  }
+  });
 
-  for (element of relativeElements) {
+  relativeElements.forEach((element) => {
     element.classList.remove("relative");
-  }
+  });
 }
