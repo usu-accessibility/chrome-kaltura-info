@@ -4,10 +4,6 @@ Kaltura Information is a Chrome extension that displays info about Kaltura media
 
 Install [here](https://chrome.google.com/webstore/detail/kaltura-information/hdfbfjhbcjjcpbbflhofiicpocglmpbn).
 
-## External Libraries Used
-
-None
-
 ## External Services Used
 
 1. [Chrome Web Store](https://chrome.google.com/webstore/category/extensions): Used to host extension.
@@ -37,3 +33,6 @@ None
 
 - Add copy button reset after click.
 - Update some code syntax.
+
+
+Additional information about how to update the extension can be found [at this Markdown file](/how-to-update.md).
